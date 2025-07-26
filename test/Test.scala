@@ -1,5 +1,7 @@
 //> using dep "org.scalameta::munit::1.1.1"
 
+package com.emblaisdell.sexpr4s
+
 class SExprParserTest extends munit.FunSuite:
 
   test("simple list") {

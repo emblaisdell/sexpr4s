@@ -1,3 +1,5 @@
+package com.emblaisdell.sexpr4s
+
 enum SExpr:
   case L(values: List[SExpr])     // List
   case S(value: String)           // Symbol
