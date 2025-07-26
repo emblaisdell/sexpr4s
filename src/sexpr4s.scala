@@ -8,7 +8,7 @@ enum SExpr:
 
 import scala.util.{Try, Success, Failure}
 
-object SExprParser:
+object SExpr:
 
   def parse(input: String): Either[String, SExpr] =
     tokenize(input) match
