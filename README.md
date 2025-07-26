@@ -1,4 +1,4 @@
-# SExprParser
+# `sexpr4s` S-Expression Parser
 
 A minimal S-expression parser in Scala 3 using Scala CLI. Parses strings like:
 
