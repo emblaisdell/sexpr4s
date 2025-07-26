@@ -1,0 +1,11 @@
+project:
+  name: sexpr4s
+  description: S-Expression support for Scala
+
+scala:
+  version: "3.3.1"  # or another Scala version
+
+# This marks it as a library (so other projects can import it)
+publish:
+  organization: "com.ebenblaisdell"
+  name: "sepr4s"
