@@ -17,3 +17,10 @@ class SExprParserTest extends munit.FunSuite:
     println(result)
     assertEquals(result.toOption.get.toString, "L(List(Q(hello world)))")
   }
+
+  test("print roundtrip") {
+    val input = """(define x 42.0 ("hello" "wo rld"))"""
+    val result = SExpr.parse(input)
+    println(result)
+    assertEquals(result.toOption.get.print, input)
+  }

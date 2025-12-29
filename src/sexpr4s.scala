@@ -6,6 +6,18 @@ enum SExpr:
   case Q(value: String)           // Quoted string
   case N(value: Double)           // Number
 
+  def print: String = this match
+      case SExpr.L(values) =>
+        values.map(_.print).mkString("(", " ", ")")
+      case SExpr.S(value) => value
+      case SExpr.Q(value) =>
+        "\"" + value
+          .replace("\\", "\\\\")
+          .replace("\"", "\\\"")
+          .replace("\n", "\\n")
+          .replace("\t", "\\t") + "\""
+      case SExpr.N(value) => value.toString
+
 import scala.util.{Try, Success, Failure}
 
 object SExpr:
@@ -53,3 +65,4 @@ object SExpr:
         parseTokens(tokens) match
           case Some((expr, rem)) => parseList(rem, expr :: acc)
           case None              => None
+
