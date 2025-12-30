@@ -34,7 +34,6 @@ object SExpr:
   private def tokenize(input: String): Either[String, List[String]] =
     val Token = raw"""([()]|"(?:[^"\\]|\\.)*"|[^\s()]+)""".r
     val tokens = Token.findAllIn(input).toList
-    println(tokens)
     Right(tokens)
 
   private def parseTokens(tokens: List[String]): Option[(SExpr, List[String])] =
