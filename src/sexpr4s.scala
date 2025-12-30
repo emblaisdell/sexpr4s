@@ -18,6 +18,8 @@ enum SExpr:
           .replace("\t", "\\t") + "\""
       case SExpr.N(value) => value.toString
 
+  override def toString: String = this.print
+
 import scala.util.{Try, Success, Failure}
 
 object SExpr:
