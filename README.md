@@ -55,7 +55,7 @@ enum SExpr:
   case L(values: List[SExpr])  // List
   case S(value: String)        // Symbol
   case Q(value: String)        // Quoted string
-  case N(value: Double)        // Number
+  case N(value: Int)        // Number
 ```
 
 ---
