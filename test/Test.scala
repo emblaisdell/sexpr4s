@@ -1,4 +1,4 @@
-//> using dep "org.scalameta::munit::1.1.1"
+//> using dep "org.scalameta::munit::1.2.4"
 
 package com.emblaisdell.sexpr4s
 
@@ -8,7 +8,7 @@ class SExprParserTest extends munit.FunSuite:
     val input = "(define x 42)"
     val result = SExpr.parse(input)
     println(result)
-    assertEquals(result.toOption.get.toString, "L(List(S(define), S(x), N(42.0)))")
+    assertEquals(result.toOption.get.toString, "L(List(S(define), S(x), N(42)))")
   }
 
   test("quoted string") {

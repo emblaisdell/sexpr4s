@@ -4,7 +4,7 @@ enum SExpr:
   case L(values: List[SExpr])     // List
   case S(value: String)           // Symbol
   case Q(value: String)           // Quoted string
-  case N(value: Double)           // Number
+  case N(value: Int)           // Number
 
   def print: String = this match
       case SExpr.L(values) =>
@@ -18,7 +18,7 @@ enum SExpr:
           .replace("\t", "\\t") + "\""
       case SExpr.N(value) => value.toString
 
-  override def toString: String = this.print
+  // override def toString: String = this.print
 
 import scala.util.{Try, Success, Failure}
 
@@ -54,7 +54,7 @@ object SExpr:
         Some((SExpr.Q(str), rest))
 
       case tok :: rest =>
-        Try(tok.toDouble) match
+        Try(tok.toInt) match
           case Success(num) => Some((SExpr.N(num), rest))
           case Failure(_)   => Some((SExpr.S(tok), rest))
 
