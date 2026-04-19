@@ -24,3 +24,10 @@ class SExprParserTest extends munit.FunSuite:
     println(result)
     assertEquals(result.toOption.get.print, input)
   }
+
+  test("complex parse") {
+    val input = """(Str "Parse a Phoenicia file string and return an s-expression of rewrites.  The function expects one or more `calc \"path\" { ... }` blocks, each containing zero or more declarations of the form `name : Type* -> Type;`, optional `@` annotations on the line(s) immediately before a declaration, and `//` line comments immediately above a declaration for documentation.")"""
+    val result = SExpr.parse(input)
+    println(result)
+    assertEquals(result.toOption.get.print, input)
+  }

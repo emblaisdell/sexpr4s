@@ -18,7 +18,17 @@ enum SExpr:
           .replace("\t", "\\t") + "\""
       case SExpr.N(value) => value.toString
 
-  // override def toString: String = this.print
+  def prettyPrint(indent: Int = 0): String = this match
+      case SExpr.L(values) =>
+        val oneLine = this.print
+        if oneLine.length <= 60 then oneLine
+        else
+          val padding = " " * (indent + 4)
+          val inner = values.map(v => padding + v.prettyPrint(indent + 4)).mkString("\n")
+          s"(\n$inner\n${" " * indent})"
+      case _ => this.print
+
+  override def toString: String = this.prettyPrint()
 
 import scala.util.{Try, Success, Failure}
 
